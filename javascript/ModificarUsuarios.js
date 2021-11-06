@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 console.log(objeto);
                 validar=true;
                 break;
-            }else if(us==id1 && us==0){
+            }else if(us==id1 && objeto['_Usuario__Usuario']=="admin"){
                 alert('El usuario No puede Eliminarse Es administrador');
             }
         }
