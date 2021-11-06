@@ -166,7 +166,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         let objeto="";
         let validar=false;
         for(let us in usuarios){
-            if(us==id1){
+            if(us==id1 && objeto['_Usuario__Usuario']!='admin'){
                 objeto= usuarios[us];
                 console.log(objeto);
                 validar=true;
