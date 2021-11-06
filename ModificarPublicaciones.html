@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+</head>
+<body>
+    <div class="modal" tabindex="-1" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Editar Usuario</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form class="card">
+                <div class="card-body">
+                  <div class="form-group":width>
+                    <label for="genero" class="mt-3" style="margin-left: 2%;">Tipo</label>
+                    <input type="text" class="form-control" style="margin-top: 3%;" id="tipoE">
+                  </div>
+                  <div class="form-group">
+                    <label for="genero" class="mt-3" style="margin-left: 2%;">Url</label>
+                    <input type="text" class="form-control" style="margin-top: 3%;" id="urlE">
+                  </div>
+                  <div class="form-group">
+                    <label for="genero" class="mt-3" style="margin-left: 2%;">Categoria</label>
+                    <input type="text"  class="form-control" style="margin-top: 3%;" id="categoriaE">
+                  </div>
+                  <div class="form-group">
+                    <label for="genero" class="mt-3" style="margin-left: 2%;">Fecha</label>
+                    <input type="text"  class="form-control" style="margin-top: 3%;" id="fechaE">
+                  </div>
+                  <div class="form-group">
+                    <label for="genero" class="mt-3" style="margin-left: 2%;">Usuario</label>
+                    <input type="text"  class="form-control" style="margin-top: 3%;" id="usuarioE" disabled>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary" id="Modificar">Guardar Cambios</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="modal" tabindex="-1" id="myModal2">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Visualizar Usuario</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form class="card">
+                <div class="card-body">
+                  <div class="form-group":width>
+                    <label for="genero" class="mt-3" style="margin-left: 2%;">Tipo</label>
+                    <label for="genero" class="form-control mt-3" style="margin-left: 2%;" id="tipoP"></label>
+                  </div>
+                  <div class="form-group">
+                    <label for="genero" class="mt-3" style="margin-left: 2%;">Url</label>
+                    <label for="genero" class="form-control mt-3" style="margin-left: 2%;" id="urlP"></label>
+                  </div>
+                  <div class="form-group">
+                    <label for="genero" class="mt-3" style="margin-left: 2%;">Categoria</label>
+                    <label for="genero" class="form-control mt-3" style="margin-left: 2%;" id="categoriaP"></label>
+                  </div>
+                  <div class="form-group">
+                    <label for="genero" class="mt-3" style="margin-left: 2%;">Fecha</label>
+                    <label for="genero" class="form-control mt-3" style="margin-left: 2%;" id="fechaP"></label>
+                  </div>
+                  <div class="form-group">
+                    <label for="genero" class="mt-3" style="margin-left: 2%;">Usuario</label>
+                    <label for="genero" class="form-control mt-3"style="margin-left: 2%;" id="usuarioP"></label>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container"  id="captura">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar1">
+              <div class="container-fluid">
+                        <a class="navbar-brand" href="Central.html">Ublog</a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                        </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                          <ul class="navbar-nav text-end" >
+                            <li class="nav-item text" >
+                                  <a class="nav-link active" aria-current="page" href="Admin.html">Admin Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                  <a class="nav-link active" href="ModificarUsuarios.html">Modificar Usuarios</a>
+                            </li>
+                          </ul>
+                    </div>
+                </div>
+            </nav>
+            
+        <div class="container col-md-14" style="margin-top:10%;display: flex; flex-direction: row; justify-content: space-between;">
+            <div><label class="mt-3"> <h6 class="display-6">Todas las Publicaciones</h6> </label></div>
+            <div><button class="btn btn-dark" style="margin-top: 22%;" id="exportarPDF" >Exportar a PDF</button></div>
+        </div>
+        <div class="container" style="margin-top: 5%;">
+            <div class="container col-md-14">
+                <table class="table" >
+                    <thead class="table-dark">
+                      <th>#</th>
+                      <th>Tipo</th>
+                      <th>Url</th>
+                      <th>Categoria</th>
+                      <th>Fecha</th>
+                      <th>Usuario</th>
+                      <th>Opciones</th>
+                    </thead>
+                    <tbody id="table">
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+      </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/polyfills.umd.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+        <script src="javascript/html2pdf.bundle.min.js"></script>
+        <script src="javascript/ModificarPublicaciones.js"></script>
+</body>
+</html>
