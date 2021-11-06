@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 btnVisualizar.setAttribute('data-target', '#modal');
                 btnVisualizar.onclick=(e)=>{
                     const idI = row.getAttribute('id');
-                    fetch(`http://127.0.0.1:5000/like/${idI}`)
+                    fetch(`https://proyecto2-backend-prueba.herokuapp.com/like/${idI}`)
                     .then(response => response.json())
                     .then(data => {
                         objeto = data.data;
@@ -93,6 +93,5 @@ document.addEventListener('DOMContentLoaded',()=>{
             }
         }
     }
-
 
 })
