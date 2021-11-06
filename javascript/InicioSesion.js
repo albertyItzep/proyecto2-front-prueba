@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded',function(){
     btn.onclick =function(){    
         let pass1= password.value.replace('#','~');
         console.log(pass1);
-        fetch(`http://127.0.0.1:5000/inicio/${usuario.value}/${pass1}`)
+        fetch(`https://proyecto2-backend-prueba.herokuapp.com/${usuario.value}/${pass1}`)
         .then(response => response.json())
         .then(data=>{
            if(data.data=="false"){

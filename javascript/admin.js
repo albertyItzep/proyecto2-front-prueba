@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     //envio de datos a servidor
     async function enviarDatosUsuarios(jsonEnviar){
         console.log(jsonEnviar);
-        const envio = await fetch('http://localhost:5000/cargaUsuarios',{
+        const envio = await fetch('https://proyecto2-backend-prueba.herokuapp.com/cargaUsuarios',{
             method:"POST",
             body:JSON.stringify({"usuarios":jsonEnviar}),
             headers:headers
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     
     async function enviarDatosPublicaciones(jsonEnviar){
         console.log(jsonEnviar);
-        const envio = await fetch('http://localhost:5000/cargaPublicaciones',{
+        const envio = await fetch('https://proyecto2-backend-prueba.herokuapp.com/cargaPublicaciones',{
             method:"POST",
             body:JSON.stringify({"publicaciones":jsonEnviar}),
             headers:headers
