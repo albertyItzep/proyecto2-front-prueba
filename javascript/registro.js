@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded',function(){
                 }, 1500);
             }else if(data.data=="invalid password"){
                 newLabel.className+="alert alert-danger btn-block mt-2 col-lg-12";
-                newLabel.innerHTML="La contraseña debe poseer almenos un signo y un numero";
+                newLabel.innerHTML="La contrasena debe poseer almenos un signo y un numero y un minimo de 8 caracteres";
                 contenedor.appendChild(newLabel);
                 setTimeout(() => {
                     contenedor.removeChild(newLabel);
