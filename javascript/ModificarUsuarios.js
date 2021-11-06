@@ -166,12 +166,12 @@ document.addEventListener('DOMContentLoaded',()=>{
         let objeto="";
         let validar=false;
         for(let us in usuarios){
-            if(us==id1 && us!=0){
+            if(us==id1){
                 objeto= usuarios[us];
                 console.log(objeto);
                 validar=true;
                 break;
-            }else if(us==id1 && objeto['_Usuario__Usuario']=="admin"){
+            }else if(us==id1 && objeto['_Usuario__Usuario']=='admin'){
                 alert('El usuario No puede Eliminarse Es administrador');
             }
         }
