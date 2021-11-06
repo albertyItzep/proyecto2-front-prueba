@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded',function(){
     editUser.onclick=()=>{
         let usuario= sessionStorage.getItem('nameUser');
         var myModal = new bootstrap.Modal(document.getElementById('myModal'));
-        fetch(`http://localhost:5000/usuarioIngresado/${usuario}`)
+        fetch(`https://proyecto2-backend-prueba.herokuapp.com/usuarioIngresado/${usuario}`)
         .then(response => response.json())
         .then(data =>{
             if(data!= "Json incorrecto"){
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded',function(){
     editUser2.onclick=()=>{
         let usuario= sessionStorage.getItem('nameUser');
         var myModal = new bootstrap.Modal(document.getElementById('myModal'));
-        fetch(`http://localhost:5000/usuarioIngresado/${usuario}`)
+        fetch(`https://proyecto2-backend-prueba.herokuapp.com/usuarioIngresado/${usuario}`)
         .then(response => response.json())
         .then(data =>{
             if(data!= "Json incorrecto"){
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded',function(){
     crearP.onclick = ()=>{
         let usuario= sessionStorage.getItem('nameUser');
         var myModal = new bootstrap.Modal(document.getElementById('myModal'));
-        fetch(`http://localhost:5000/usuarioIngresado/${usuario}`)
+        fetch(`https://proyecto2-backend-prueba.herokuapp.com/usuarioIngresado/${usuario}`)
         .then(response => response.json())
         .then(data =>{
             if(data!= "Json incorrecto"){
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded',function(){
                 dataE=true;
             }
             datosEnvio={'nombre':nombreU.value,'usuario':usuarioU.value,'genero':generoU.value,'correo':correoU.value,'password':passwordU.value,'keydate':dataE,'usuarioInicial':usuario['_Usuario__Usuario']};
-            fetch('http://127.0.0.1:5000/usuarioM',{
+            fetch('https://proyecto2-backend-prueba.herokuapp.com/usuarioM',{
                 method:'PUT',
                 headers:headers,
                 body:JSON.stringify({"usuario":datosEnvio})

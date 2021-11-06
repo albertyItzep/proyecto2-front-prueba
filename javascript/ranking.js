@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     let id2=0;
     const usuario= "pedrito123";
     let id =0;
-    fetch(`http://localhost:5000/verestadp`)
+    fetch(`https://proyecto2-backend-prueba.herokuapp.com/verestadp`)
     .then(response => response.json())
     .then(data =>{
         cargaUsuarios(data);
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         dos()
     })
     function dos(){
-    fetch(`http://localhost:5000/graficsR/pedrito123`)
+    fetch(`https://proyecto2-backend-prueba.herokuapp.com/graficsR/pedrito123`)
     .then(response => response.json())
     .then(data =>{
         let arrPublicaciones= data;

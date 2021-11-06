@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     headers.append('GET','POST','OPTIONS','PUT');
     const table = document.getElementById("table");
     let id=1;
-    fetch('http://127.0.0.1:5000/obtenerPublicaciones')
+    fetch('https://proyecto2-backend-prueba.herokuapp.com/obtenerPublicaciones')
     .then(response => response.json())
     .then(data =>{
         cargaPublicaciones(data);
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         const btnMod = document.getElementById('Modificar');
         btnMod.onclick = ()=>{
             const datosEnvio={'type':tipoE.value,'url':urlE.value,'category':categoriaE.value,'date':fechaE.value,'user':usuarioE.value,'datekey':idU};
-            fetch('http://127.0.0.1:5000/editarPublicacion',{
+            fetch('https://proyecto2-backend-prueba.herokuapp.com/editarPublicacion',{
                 method:'PUT',
                 headers:headers,
                 body:JSON.stringify({"Publicacion":datosEnvio})
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         }
         //proceso de envio de datos borrar
         if(validar == true){
-            fetch(`http://127.0.0.1:5000/borrarPublicacion/${id1}/${objeto['_Publicacion__User']}`,{method:'DELETE'})
+            fetch(`https://proyecto2-backend-prueba.herokuapp.com/borrarPublicacion/${id1}/${objeto['_Publicacion__User']}`,{method:'DELETE'})
             .then(respose => respose.json())
             .then(data =>{
                 vaciarTable();

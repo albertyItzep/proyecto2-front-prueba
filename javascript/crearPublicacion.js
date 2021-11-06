@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded',function(){
         let fecha = new Date();
         alert(author);
         const datosEnvio  = {'type':TipoNueva.value,'url':urlNueva.value,'date':fecha.toLocaleDateString(),'category':CategoriaNueva.value,'author':author} 
-        fetch('http://localhost:5000/crearPublicacion',{
+        fetch('https://proyecto2-backend-prueba.herokuapp.com/crearPublicacion',{
             method:"POST",
             body:JSON.stringify({"publicacion":datosEnvio}),
             headers:headers

@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             .save()
             .catch(err => console.log(err));
     }
-    fetch('http://localhost:5000/MasLikes')
+    fetch('https://proyecto2-backend-prueba.herokuapp.com/MasLikes')
     .then(response =>response.json())
     .then(data =>{
         datos=data;
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         SegundaGrafica();
         }
         function SegundaGrafica(){
-            fetch('http://localhost:5000/verestadp')
+            fetch('https://proyecto2-backend-prueba.herokuapp.com/verestadp')
             .then(response =>response.json())
             .then(data =>{
                 agregarGrafica2(data)

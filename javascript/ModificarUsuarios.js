@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     headers.append('GET','POST','OPTIONS','PUT');
     const table = document.getElementById("table");
     let id=1;
-    fetch('http://127.0.0.1:5000/obtenerUsuarios')
+    fetch('https://proyecto2-backend-prueba.herokuapp.com/obtenerUsuarios')
     .then(response => response.json())
     .then(data =>{
         cargaUsuarios(data);
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         const btnMod = document.getElementById('Modificar');
         btnMod.onclick = ()=>{
             const datosEnvio={'nombre':nombreU.value,'usuario':usuarioU.value,'genero':generoU.value,'correo':correoU.value,'password':passwordU.value,'datos':objeto['_Usuario__Usuario']};
-            fetch('http://127.0.0.1:5000/editarUsuario',{
+            fetch('https://proyecto2-backend-prueba.herokuapp.com/editarUsuario',{
                 method:'PUT',
                 headers:headers,
                 body:JSON.stringify({"Usuario":datosEnvio})
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         }
         //proceso de envio de datos borrar
         if(validar == true){
-            fetch(`http://127.0.0.1:5000/borrarUsuario/${objeto['_Usuario__Usuario']}`,{method:'DELETE'})
+            fetch(`https://proyecto2-backend-prueba.herokuapp.com/borrarUsuario/${objeto['_Usuario__Usuario']}`,{method:'DELETE'})
             .then(respose => respose.json())
             .then(data =>{
                 vaciarTable();

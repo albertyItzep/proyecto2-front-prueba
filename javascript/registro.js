@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded',function(){
         console.log('hola')
         const data1 = {'nombre':nombre.value,'usuario':usuario.value,'genero':genero.value,'correo':correo.value,'password':password.value}
         console.log(data1);
-        fetch('http://localhost:5000/register',{
+        fetch('https://proyecto2-backend-prueba.herokuapp.com/register',{
             method:'POST',
             headers:headers,
             body:JSON.stringify(data1)
