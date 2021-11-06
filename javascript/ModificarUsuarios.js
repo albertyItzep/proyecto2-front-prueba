@@ -163,11 +163,10 @@ document.addEventListener('DOMContentLoaded',()=>{
     //funcion para remover usuario
     function removerUsuario(id,usuarios){
         id1= id-1
-        let objeto="";
         let validar=false;
         for(let us in usuarios){
+            let objeto= usuarios[us];
             if(us==id1 && objeto['_Usuario__Usuario']!='admin'){
-                objeto= usuarios[us];
                 console.log(objeto);
                 validar=true;
                 break;
