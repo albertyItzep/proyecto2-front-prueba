@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         dos()
     })
     function dos(){
-    fetch(`https://proyecto2-backend-prueba.herokuapp.com/graficsR/pedrito123`)
+    fetch(`https://proyecto2-backend-prueba.herokuapp.com/graficsR/${usuarioS}`)
     .then(response => response.json())
     .then(data =>{
         let arrPublicaciones= data;
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 row.innerHTML=`
                 <div class="card" style="width: 40rem;">
                     <div style="display: flex;justify-content: center;">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/bRpr6ZYNREA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="${ob['_Publicacion__Url']}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>    
                     <div class="card-body">
                     <h5 class="card-title">${ob['_Publicacion__Category']}</h5>
