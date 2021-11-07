@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     })
     function cargaUsuarios(usuarios){
         for(let us in usuarios){
-            for (let x in publicaciones){
+            for (let x in usuarios){
                 let row = table.insertRow();
-                let ob= publicaciones[x];
+                let ob= usuarios[x];
                 if(ob['_Publicacion__Type']=="Imagen"){
-                    row.setAttribute('id',id++);
+                    row.setAttribute('id',id2++);
                     row.innerHTML=`
                         <div class="card" style="width: 40rem;">
                         <div style="display: flex;justify-content: center;">
@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded',()=>{
                     likes.style.marginLeft='1%';
                     likes.innerHTML=`${ob['Like']}`
                     row.children[0].children[2].appendChild(likes);
-    
                 }else{
                     row.setAttribute('id',id++);
                     row.innerHTML=`
