@@ -12,8 +12,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     const usuariosDiv = document.getElementById('usuariosDiv');
     const graficas =document.getElementById('graficas');
     const publicacionesDiv = document.getElementById('publicacionesDiv');
+    const salirbtn = document.getElementById('salir');
     let newLabel = document.createElement('label');
     let newLabel1 = document.createElement('label');
+    salirbtn.onclick = ()=>{
+        window.location.replace("Inicio.html");
+    }
     graficas.onclick=()=>{
         window.location.replace("Graficas.html");
     }
