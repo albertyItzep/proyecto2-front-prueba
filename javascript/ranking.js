@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     function cargaUsuarios(usuarios){
         for(let us in usuarios){
             for (let x in usuarios){
-                let row = table.insertRow();
+                let row = table1.insertRow();
                 let ob= usuarios[x];
                 if(ob['_Publicacion__Type']=="Imagen"){
                     row.setAttribute('id',id2++);
