@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded',()=>{
         console.log(data)
     })
     function cargaUsuarios(usuarios){
-        for(let us in usuarios){
             for (let x in usuarios){
                 let row = table1.insertRow();
                 let ob= usuarios[x];
@@ -59,7 +58,6 @@ document.addEventListener('DOMContentLoaded',()=>{
                     row.children[0].children[2].appendChild(likes);
                 }
             }
-        }
     }
     btn1.addEventListener('click',()=>{
         dos()
