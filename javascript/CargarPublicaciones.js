@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                                 console.log(objeto);
                                 likes.innerHTML=`${objeto['Like']}`;
                                 objeto['Like']
+                                console.log(valorL)
                             })
                         }else{
 
