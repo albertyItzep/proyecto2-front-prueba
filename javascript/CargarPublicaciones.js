@@ -80,6 +80,8 @@ document.addEventListener('DOMContentLoaded',()=>{
                 btnVisualizar.setAttribute('data-target', '#modal');
                 btnVisualizar.onclick=(e)=>{
                         const idI = row.getAttribute('id');
+                        valorL.add(idI);
+                        console.log(valorL);
                         fetch(`https://proyecto2-backend-prueba.herokuapp.com/like/${idI}`)
                         .then(response => response.json())
                         .then(data => {
@@ -88,7 +90,6 @@ document.addEventListener('DOMContentLoaded',()=>{
                             likes.innerHTML=`${objeto['Like']}`;
                             objeto['Like']
                         })
-                        console.log(valorL[0]);
                 }
                 row.children[0].children[2].appendChild(btnVisualizar);
                 row.children[0].children[2].appendChild(likes);
