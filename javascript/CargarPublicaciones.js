@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const table = document.getElementById('table');
     let id=0
     let valorL=[]
-    let validacion=false
+    var validacion=false;
     sessionStorage.setItem('nameUser',usuario);
 
     fetch('https://proyecto2-backend-prueba.herokuapp.com/MasLikes')
@@ -46,11 +46,37 @@ document.addEventListener('DOMContentLoaded',()=>{
                 btnVisualizar.setAttribute('data-target', '#modal');
                 btnVisualizar.onclick=(e)=>{
                     const idI = row.getAttribute('id');
-                    fetch(`https://proyecto2-backend-prueba.herokuapp.com/like/${idI}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        objeto = data.data;
-                        likes.innerHTML=`${objeto['Like']}`;                    })
+                    for(let x=0;x<valorL.length;x++){
+                        if(valorL[x]==idI){
+                            validacion=true;
+                            console.log(validacion)
+                            console.log('hola')
+                            break;
+                        }
+                    }
+                    if(validacion==false){
+                        valorL.push(idI)
+                        fetch(`https://proyecto2-backend-prueba.herokuapp.com/like/${idI}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            objeto = data.data;
+                            console.log(objeto);
+                            likes.innerHTML=`${objeto['Like']}`;
+                            objeto['Like']
+                            console.log(validacion)
+                        })
+                    }else if(validacion==true){
+                        fetch(`https://proyecto2-backend-prueba.herokuapp.com/likeN/${idI}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            validacion=false;
+                            objeto = data.data;
+                            console.log(objeto);
+                            likes.innerHTML=`${objeto['Like']}`;
+                            objeto['Like']
+                            console.log(validacion)
+                        })
+                    }
                 }
                 row.children[0].children[2].appendChild(btnVisualizar);
                 row.children[0].children[2].appendChild(likes);
@@ -83,7 +109,10 @@ document.addEventListener('DOMContentLoaded',()=>{
                         const idI = row.getAttribute('id');
                         for(let x=0;x<valorL.length;x++){
                             if(valorL[x]==idI){
-                                validacion==true;
+                                validacion=true;
+                                console.log(validacion)
+                                console.log('hola')
+                                break;
                             }
                         }
                         if(validacion==false){
@@ -95,10 +124,19 @@ document.addEventListener('DOMContentLoaded',()=>{
                                 console.log(objeto);
                                 likes.innerHTML=`${objeto['Like']}`;
                                 objeto['Like']
-                                console.log(valorL)
+                                console.log(validacion)
                             })
-                        }else{
-
+                        }else if(validacion==true){
+                            fetch(`https://proyecto2-backend-prueba.herokuapp.com/likeN/${idI}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                validacion=false;
+                                objeto = data.data;
+                                console.log(objeto);
+                                likes.innerHTML=`${objeto['Like']}`;
+                                objeto['Like']
+                                console.log(validacion)
+                            })
                         }
                 }
                 row.children[0].children[2].appendChild(btnVisualizar);
