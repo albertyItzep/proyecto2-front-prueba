@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                 btnVisualizar.setAttribute('data-target', '#modal');
                 btnVisualizar.onclick=(e)=>{
                         const idI = row.getAttribute('id');
-                        valorL.push(idI)
+                        valorL.push(idI.value)
                         console.log(valorL);
                         fetch(`https://proyecto2-backend-prueba.herokuapp.com/like/${idI}`)
                         .then(response => response.json())
