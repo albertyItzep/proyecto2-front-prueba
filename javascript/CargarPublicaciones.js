@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const usuario = sessionStorage.getItem('nameUser');
     const table = document.getElementById('table');
     let id=0
+    let valorL=[0,1]
     sessionStorage.setItem('nameUser',usuario);
 
     fetch('https://proyecto2-backend-prueba.herokuapp.com/MasLikes')
@@ -78,15 +79,16 @@ document.addEventListener('DOMContentLoaded',()=>{
                 btnVisualizar.setAttribute('data-toggle', 'modal');
                 btnVisualizar.setAttribute('data-target', '#modal');
                 btnVisualizar.onclick=(e)=>{
-                    const idI = row.getAttribute('id');
-                    fetch(`https://proyecto2-backend-prueba.herokuapp.com/like/${idI}`)
-                    .then(response => response.json())
-                    .then(data => {
-                        objeto = data.data;
-                        console.log(objeto);
-                        likes.innerHTML=`${objeto['Like']}`;
-                        objeto['Like']
-                    })
+                        console.log(valorL);
+                        const idI = row.getAttribute('id');
+                        fetch(`https://proyecto2-backend-prueba.herokuapp.com/like/${idI}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            objeto = data.data;
+                            console.log(objeto);
+                            likes.innerHTML=`${objeto['Like']}`;
+                            objeto['Like']
+                        })
                 }
                 row.children[0].children[2].appendChild(btnVisualizar);
                 row.children[0].children[2].appendChild(likes);
