@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     const usuario = sessionStorage.getItem('nameUser');
     const table = document.getElementById('table');
     let id=0
-    let valorL=[0,1]
+    let valorL=[]
+    let validacion=false
     sessionStorage.setItem('nameUser',usuario);
 
     fetch('https://proyecto2-backend-prueba.herokuapp.com/MasLikes')
@@ -80,16 +81,24 @@ document.addEventListener('DOMContentLoaded',()=>{
                 btnVisualizar.setAttribute('data-target', '#modal');
                 btnVisualizar.onclick=(e)=>{
                         const idI = row.getAttribute('id');
-                        valorL.push(idI.value)
-                        console.log(valorL);
-                        fetch(`https://proyecto2-backend-prueba.herokuapp.com/like/${idI}`)
-                        .then(response => response.json())
-                        .then(data => {
-                            objeto = data.data;
-                            console.log(objeto);
-                            likes.innerHTML=`${objeto['Like']}`;
-                            objeto['Like']
-                        })
+                        for(let x=0;x<valorL.length;x++){
+                            if(valorL[x]==idI){
+                                validacion==true;
+                            }
+                        }
+                        if(validacion==false){
+                            valorL.push(idI)
+                            fetch(`https://proyecto2-backend-prueba.herokuapp.com/like/${idI}`)
+                            .then(response => response.json())
+                            .then(data => {
+                                objeto = data.data;
+                                console.log(objeto);
+                                likes.innerHTML=`${objeto['Like']}`;
+                                objeto['Like']
+                            })
+                        }else{
+
+                        }
                 }
                 row.children[0].children[2].appendChild(btnVisualizar);
                 row.children[0].children[2].appendChild(likes);
