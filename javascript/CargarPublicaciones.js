@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     let id=0
     let valorL=[]
     var validacion=false;
+    var validacion2=false;
     sessionStorage.setItem('nameUser',usuario);
 
     fetch('https://proyecto2-backend-prueba.herokuapp.com/MasLikes')
@@ -64,16 +65,22 @@ document.addEventListener('DOMContentLoaded',()=>{
                             likes.innerHTML=`${objeto['Like']}`;
                             objeto['Like']
                             console.log(validacion)
+                            validacion=false;
                         })
                     }else if(validacion==true){
                         fetch(`https://proyecto2-backend-prueba.herokuapp.com/likeN/${idI}`)
                         .then(response => response.json())
                         .then(data => {
-                            validacion=false;
                             objeto = data.data;
                             console.log(objeto);
                             likes.innerHTML=`${objeto['Like']}`;
                             objeto['Like']
+                            for(let x=0;x<valorL.length;x++){
+                                if(valorL[x]==idI){
+                                    valorL.splice(x,1);
+                                    break;
+                                }
+                            }
                             console.log(validacion)
                         })
                     }
@@ -121,10 +128,11 @@ document.addEventListener('DOMContentLoaded',()=>{
                             .then(response => response.json())
                             .then(data => {
                                 objeto = data.data;
-                                console.log(objeto);
+                                console.log('poner');
                                 likes.innerHTML=`${objeto['Like']}`;
-                                objeto['Like']
-                                console.log(validacion)
+                                objeto['Like'];
+                                validacion=false;
+                                console.log(valorL);
                             })
                         }else if(validacion==true){
                             fetch(`https://proyecto2-backend-prueba.herokuapp.com/likeN/${idI}`)
@@ -132,9 +140,14 @@ document.addEventListener('DOMContentLoaded',()=>{
                             .then(data => {
                                 validacion=false;
                                 objeto = data.data;
-                                console.log(objeto);
                                 likes.innerHTML=`${objeto['Like']}`;
                                 objeto['Like']
+                                for(let x=0;x<valorL.length;x++){
+                                    if(valorL[x]==idI){
+                                        valorL.splice(x,1);
+                                        break;
+                                    }
+                                }
                                 console.log(validacion)
                             })
                         }
